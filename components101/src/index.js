@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CommentDetail from "./CommentDetail";
-import ApprovalCard from "./ApprovalCard";
 import faker from "faker";
 
-const App = () => {
+// used for CommentApp
+import CommentDetail from "./comments/CommentDetail";
+import ApprovalCard from "./comments/ApprovalCard";
+
+// used for SeasonsApp
+import SeasonDisplay from "./seasons/SeasonDisplay";
+
+const CommentApp = () => {
   return (
     <div className="ui container comments">
       <ApprovalCard>
@@ -37,4 +42,21 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+const SeasonsApp = () => {
+  window.navigator.geolocation.getCurrentPosition(
+    function(position) {
+      console.log(position);
+    },
+    function(err) {
+      console.log(err);
+    }
+  );
+
+  return (
+    <div>
+      <SeasonDisplay />
+    </div>
+  );
+};
+
+ReactDOM.render(<SeasonsApp />, document.querySelector("#root"));
