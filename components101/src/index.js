@@ -43,15 +43,6 @@ const CommentApp = () => {
 };
 
 const SeasonsApp = () => {
-  window.navigator.geolocation.getCurrentPosition(
-    function(position) {
-      console.log(position);
-    },
-    function(err) {
-      console.log(err);
-    }
-  );
-
   return (
     <div>
       <SeasonDisplay />
