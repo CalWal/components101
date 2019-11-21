@@ -10,11 +10,12 @@ class SeasonDisplay extends React.Component {
       position => {
         this.setState({
           lat: position.coords.latitude,
-          long: position.coords.longitude
+          long: position.coords.longitude,
+          errorMessage: ""
         });
       },
       err => {
-        console.log(err);
+        this.setState({ errorMessage: err.message });
       }
     );
   }
@@ -24,6 +25,7 @@ class SeasonDisplay extends React.Component {
       <div>
         <h1>Latitude: {this.state.lat}</h1>
         <h1>Longitude: {this.state.long}</h1>
+        <h1>Error: {this.state.errorMessage}</h1>
       </div>
     );
   }
